@@ -58,8 +58,6 @@ class MainActivity : AppCompatActivity() {
     // Elements of view main_activity.xml
     private lateinit var btnStartRecord: TextView
     private lateinit var btnStopRecord: TextView
-    private lateinit var btnStartPlayingRecord: TextView
-    private lateinit var btnStopPlayingRecord: TextView
     private lateinit var tvStatus: TextView
 
 
@@ -70,8 +68,6 @@ class MainActivity : AppCompatActivity() {
         // Initialize graphic components
         this.btnStartRecord = findViewById(R.id.btnStartRecord)
         this.btnStopRecord = findViewById(R.id.btnStopRecord)
-        this.btnStartPlayingRecord = findViewById(R.id.btnStartPlayingRecord)
-        this.btnStopPlayingRecord = findViewById(R.id.btnStopPlayingRecord)
         this.tvStatus = findViewById(R.id.tvStatus)
         // Check permission for this app
         this.startActivityResultLauncher =
@@ -86,8 +82,6 @@ class MainActivity : AppCompatActivity() {
                     initComponents()
                 } else {
                     // Disable button
-                    this.btnStartPlayingRecord.isEnabled = false
-                    this.btnStopPlayingRecord.isEnabled = false
                     this.btnStartRecord.isEnabled = false
                     this.btnStopRecord.isEnabled = false
                     this.tvStatus.text = "Estado: No disponible"
@@ -104,8 +98,6 @@ class MainActivity : AppCompatActivity() {
     private fun initComponents() {
         this.btnStartRecord.isEnabled = true
         this.btnStopRecord.isEnabled = false
-        this.btnStartPlayingRecord.setOnClickListener { startPlayingRecording() }
-        this.btnStopPlayingRecord.setOnClickListener { stopPlayingRecording() }
         this.btnStartRecord.setOnClickListener {
             startRecord()
             this.btnStartRecord.isEnabled = false
@@ -176,14 +168,4 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
-    private fun stopPlayingRecording() {
-        TODO("Not yet implemented")
-    }
-
-    private fun startPlayingRecording() {
-        TODO("Not yet implemented")
-    }
-
-
 }
